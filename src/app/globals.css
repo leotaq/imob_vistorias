@@ -1,0 +1,548 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  /* Professional deep-navy — dark mode only */
+  --background: #0c1830;
+  --foreground: #e2ecff;
+  --muted: #90aace;
+  --card: #152340;
+  --card-soft: #1c2e50;
+  --card-border: rgba(130, 165, 220, 0.25);
+  --accent: #4f8ef7;
+  --accent-strong: #74acff;
+  --danger: #f87171;
+  --topnav-bg: rgba(12, 24, 48, 0.95);
+  --topnav-border: #243d6a;
+  --app-shell-bg: radial-gradient(1200px circle at 12% 0%,
+      rgba(79, 142, 247, 0.2),
+      transparent 56%),
+    radial-gradient(900px circle at 100% 22%,
+      rgba(116, 172, 255, 0.13),
+      transparent 58%),
+    linear-gradient(180deg, #0e1e3c 0%, #0c1830 100%);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  min-height: 100dvh;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica, Arial, sans-serif;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input,
+select,
+textarea,
+button {
+  color: inherit;
+}
+
+/* Dark form elements — override browser native light appearance */
+input,
+select,
+textarea {
+  background-color: var(--card);
+  color: var(--foreground);
+  border-color: #344761;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #6b89b0;
+}
+
+select option {
+  background-color: #152340;
+  color: var(--foreground);
+}
+
+::selection {
+  background: #1d4ed8;
+  color: #f8fafc;
+}
+
+/* Dark surface overrides — always active */
+.bg-white {
+  background-color: #1a2f52 !important;
+}
+
+.bg-white\/90 {
+  background-color: rgba(18, 32, 58, 0.92) !important;
+}
+
+.bg-slate-50 {
+  background-color: #1c2e50 !important;
+}
+
+.bg-slate-100 {
+  background-color: #243558 !important;
+}
+
+.bg-slate-200 {
+  background-color: #2e3f5c !important;
+}
+
+.bg-blue-50 {
+  background-color: #1a2a45 !important;
+}
+
+.bg-blue-100 {
+  background-color: #22375a !important;
+}
+
+.text-slate-900 {
+  color: #e6edf7 !important;
+}
+
+.text-slate-800 {
+  color: #d5e0ef !important;
+}
+
+.text-slate-700 {
+  color: #c2d0e3 !important;
+}
+
+.text-slate-600 {
+  color: #adbcd0 !important;
+}
+
+.text-slate-500 {
+  color: #97a9c2 !important;
+}
+
+.text-slate-400 {
+  color: #889cb8 !important;
+}
+
+.text-blue-700 {
+  color: #9bc1ff !important;
+}
+
+.text-blue-800 {
+  color: #b5d2ff !important;
+}
+
+.border-slate-200 {
+  border-color: #344761 !important;
+}
+
+.border-slate-300 {
+  border-color: #40546f !important;
+}
+
+.border-blue-200 {
+  border-color: #2f568a !important;
+}
+
+.border-blue-400 {
+  border-color: #3d7ddb !important;
+}
+
+.hover\:bg-slate-100:hover {
+  background-color: #223451 !important;
+}
+
+.hover\:text-slate-900:hover {
+  color: #f8fafc !important;
+}
+
+/* Amber/warm → cool blue-navy */
+.bg-amber-50 {
+  background-color: #1c2e50 !important;
+}
+
+.bg-amber-100 {
+  background-color: #243558 !important;
+}
+
+.border-amber-200 {
+  border-color: #2e3a68 !important;
+}
+
+.hover\:border-amber-300:hover {
+  border-color: #4a6aaa !important;
+}
+
+.text-amber-700 {
+  color: #7ab0f5 !important;
+}
+
+.text-amber-800 {
+  color: #93c5fd !important;
+}
+
+.text-amber-900 {
+  color: #bfdbfe !important;
+}
+
+.ring-amber-200 {
+  --tw-ring-color: #6d4d13 !important;
+}
+
+/* Cyan */
+.bg-cyan-50 {
+  background-color: #0f2e3b !important;
+}
+
+.bg-cyan-100 {
+  background-color: #153f50 !important;
+}
+
+.border-cyan-200 {
+  border-color: #23617a !important;
+}
+
+.hover\:border-cyan-300:hover {
+  border-color: #2f7f9b !important;
+}
+
+.text-cyan-700 {
+  color: #7bd9f5 !important;
+}
+
+.text-cyan-800 {
+  color: #ade9fb !important;
+}
+
+/* Emerald */
+.bg-emerald-100 {
+  background-color: #1a3f33 !important;
+}
+
+.bg-emerald-200 {
+  background-color: #1a3f45 !important;
+}
+
+.border-emerald-200 {
+  border-color: #1f4a50 !important;
+}
+
+.text-emerald-600 {
+  color: #5dd8c9 !important;
+}
+
+.text-emerald-700 {
+  color: #7ee8b8 !important;
+}
+
+.text-emerald-800 {
+  color: #6ee7d8 !important;
+}
+
+.text-emerald-900 {
+  color: #a7f3ea !important;
+}
+
+.ring-emerald-200 {
+  --tw-ring-color: #2e7a5e !important;
+}
+
+/* Violet */
+.bg-violet-100 {
+  background-color: #2a2447 !important;
+}
+
+.text-violet-700 {
+  color: #c8b5ff !important;
+}
+
+.ring-violet-200 {
+  --tw-ring-color: #5f4ba8 !important;
+}
+
+/* Zinc */
+.bg-zinc-200 {
+  background-color: #313848 !important;
+}
+
+.text-zinc-700 {
+  color: #c5cfdf !important;
+}
+
+.ring-zinc-300 {
+  --tw-ring-color: #4a556b !important;
+}
+
+/* Purple */
+.bg-purple-200 {
+  background-color: #2e2a5a !important;
+}
+
+.border-purple-200 {
+  border-color: #33305f !important;
+}
+
+.text-purple-600 {
+  color: #a78bfa !important;
+}
+
+.text-purple-800 {
+  color: #c4b5fd !important;
+}
+
+.text-purple-900 {
+  color: #ddd6fe !important;
+}
+
+/* Gradient helpers */
+.from-amber-50 {
+  --tw-gradient-from: #1e2240 var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgb(30 34 64 / 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+.to-orange-50 {
+  --tw-gradient-to: #332915 var(--tw-gradient-to-position) !important;
+}
+
+.from-cyan-50 {
+  --tw-gradient-from: #11283a var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgb(17 40 58 / 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+.to-sky-50 {
+  --tw-gradient-to: #13314a var(--tw-gradient-to-position) !important;
+}
+
+.from-emerald-50 {
+  --tw-gradient-from: #122b35 var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgb(18 43 53 / 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+.from-purple-50 {
+  --tw-gradient-from: #1c1a3d var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgb(28 26 61 / 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+.to-white {
+  --tw-gradient-to: #1a2f52 var(--tw-gradient-to-position) !important;
+}
+
+.bg-blue-100\/70 {
+  background-color: rgb(0 103 252 / 0.14) !important;
+}
+
+.bg-cyan-100\/70 {
+  background-color: rgb(22 163 197 / 0.12) !important;
+}
+
+.bg-emerald-100\/60 {
+  background-color: rgb(16 185 129 / 0.1) !important;
+}
+
+/* Deadline / SLA badge colors — dark overrides */
+.bg-emerald-50 {
+  background-color: #122b22 !important;
+}
+
+.bg-rose-50 {
+  background-color: #2d1218 !important;
+}
+
+.bg-rose-100 {
+  background-color: #3a1520 !important;
+}
+
+.text-rose-800 {
+  color: #fca5a5 !important;
+}
+
+.text-rose-700 {
+  color: #f87171 !important;
+}
+
+.border-rose-200 {
+  border-color: #7f1d1d !important;
+}
+
+.ring-rose-200 {
+  --tw-ring-color: #7f1d1d !important;
+}
+
+.bg-orange-100 {
+  background-color: #2d1a0a !important;
+}
+
+.bg-orange-50 {
+  background-color: #231408 !important;
+}
+
+.text-orange-800 {
+  color: #fdba74 !important;
+}
+
+.text-orange-700 {
+  color: #fb923c !important;
+}
+
+.border-orange-200 {
+  border-color: #7c2d12 !important;
+}
+
+.ring-orange-200 {
+  --tw-ring-color: #7c2d12 !important;
+}
+
+/* FullCalendar — dark theme */
+.calendario-fc {
+  --fc-border-color: #243d6a;
+  --fc-button-bg-color: #111c2e;
+  --fc-button-border-color: #40546f;
+  --fc-button-hover-bg-color: #223451;
+  --fc-button-hover-border-color: #4a6aaa;
+  --fc-button-active-bg-color: #1a2f52;
+  --fc-button-active-border-color: #4f8ef7;
+  --fc-today-bg-color: rgba(0, 103, 252, 0.2);
+}
+
+.calendario-fc .fc {
+  color: #dbe4f0;
+}
+
+.calendario-fc .fc-toolbar-title {
+  color: #dbe4f0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+/* Segmented Control Buttons */
+.calendario-fc .fc .fc-button-group {
+  background-color: #1a2f52;
+  border-radius: 0.75rem;
+  padding: 0.25rem;
+  gap: 0.125rem;
+}
+
+.calendario-fc .fc .fc-button {
+  background: transparent;
+  border: none;
+  color: #8ea1ba;
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.5rem;
+  box-shadow: none !important;
+  transition: all 0.2s;
+}
+
+.calendario-fc .fc .fc-button:hover {
+  background: #223451;
+  color: #d5e0ef;
+}
+
+.calendario-fc .fc .fc-button-primary:not(:disabled).fc-button-active {
+  background: #243d6a;
+  color: #e2ecff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Today Button Header */
+.calendario-fc .fc .fc-today-button {
+  background-color: #111c2e;
+  border: 1px solid #40546f;
+  color: #90aace;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  padding: 0.375rem 1rem;
+  text-transform: capitalize;
+  margin-left: 0.5rem;
+  box-shadow: none !important;
+}
+
+.calendario-fc .fc .fc-today-button:disabled {
+  background-color: #0e1826;
+  color: #3a4f6a;
+  border-color: #243d6a;
+}
+
+/* Grids and Borders */
+.calendario-fc .fc-theme-standard td,
+.calendario-fc .fc-theme-standard th {
+  border-color: #243d6a;
+}
+
+.calendario-fc .fc-theme-standard .fc-scrollgrid {
+  border: none;
+}
+
+.calendario-fc .fc-timegrid-slot-minor {
+  border-top-style: dashed;
+  border-top-color: #1a2d4a;
+}
+
+.calendario-fc .fc-col-header-cell {
+  background-color: #152340;
+  border-bottom: 2px solid #243d6a !important;
+}
+
+.calendario-fc .fc-col-header-cell-cushion {
+  color: #b9c7da;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.75rem 0.25rem;
+}
+
+.calendario-fc .fc-timegrid-slot-label-cushion {
+  color: #8ea1ba;
+  font-weight: 500;
+  font-size: 0.75rem;
+}
+
+/* Now Indicator */
+.calendario-fc .fc-timegrid-now-indicator-line {
+  border-color: #f87171;
+  border-width: 2px;
+}
+
+.calendario-fc .fc .fc-timegrid-now-indicator-arrow {
+  border-color: #f87171;
+  border-width: 5px;
+}
+
+.calendario-fc .fc .fc-day-today {
+  background: rgba(79, 142, 247, 0.12) !important;
+}
+
+.calendario-fc .fc-col-header-cell.fc-day-today {
+  background-color: #1a3060 !important;
+}
+
+.calendario-fc .fc-col-header-cell.fc-day-today .fc-col-header-cell-cushion {
+  color: #74acff !important;
+}
+
+/* Improve overlapping events stacking shadow */
+.calendario-fc .fc-timegrid-event-harness>.fc-timegrid-event {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 6px !important;
+  border: none !important;
+  overflow: hidden;
+}
+
+/* Add a very slim gap around stacked events */
+.calendario-fc .fc-timegrid-event-harness {
+  margin: 1px !important;
+}
+
+/* Make events slightly more compact horizontally */
+.calendario-fc .fc-timegrid-event-harness-inset {
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+}
